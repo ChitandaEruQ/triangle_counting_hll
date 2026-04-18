@@ -1,0 +1,110 @@
+{
+  "graph": "datasets\\com-orkut.ungraph.txt",
+  "raw_edges": 117185083,
+  "used_edges": 117185083,
+  "dedup": false,
+  "active_nodes": 3072441,
+  "max_node_id": 3072626,
+  "degree_sum": 234370166,
+  "avg_degree": 76.28142118921079,
+  "min_degree": 1,
+  "max_degree": 33313,
+  "std_degree": 154.78127294195133,
+  "density_active_nodes": 2.4827635751783857e-05,
+  "degree_1_nodes": 67767,
+  "top_degrees": [
+    {
+      "node": 43608,
+      "degree": 33313
+    },
+    {
+      "node": 43031,
+      "degree": 29657
+    },
+    {
+      "node": 43296,
+      "degree": 27317
+    },
+    {
+      "node": 43919,
+      "degree": 25795
+    },
+    {
+      "node": 90502,
+      "degree": 25423
+    },
+    {
+      "node": 714701,
+      "degree": 25200
+    },
+    {
+      "node": 42396,
+      "degree": 25085
+    },
+    {
+      "node": 42652,
+      "degree": 24668
+    },
+    {
+      "node": 42829,
+      "degree": 24005
+    },
+    {
+      "node": 43902,
+      "degree": 23934
+    },
+    {
+      "node": 42610,
+      "degree": 23724
+    },
+    {
+      "node": 42827,
+      "degree": 23632
+    },
+    {
+      "node": 307338,
+      "degree": 23591
+    },
+    {
+      "node": 42431,
+      "degree": 22633
+    },
+    {
+      "node": 43430,
+      "degree": 22226
+    },
+    {
+      "node": 55966,
+      "degree": 21504
+    },
+    {
+      "node": 8123,
+      "degree": 21069
+    },
+    {
+      "node": 468393,
+      "degree": 20968
+    },
+    {
+      "node": 42713,
+      "degree": 20285
+    },
+    {
+      "node": 43728,
+      "degree": 19950
+    }
+  ],
+  "timing_seconds": {
+    "load_cpu": 98.41451059999963,
+    "h2d_and_alloc": 0.32476369999858434,
+    "degree_kernel": 0.2202580000011949,
+    "stats_kernel": 0.1319045999989612,
+    "histogram_kernel": 0.11108530000092287,
+    "degree_d2h_for_topk": 0.002295899999808171
+  },
+  "outputs": {
+    "degree_distribution_csv": "results\\orkut_graph_stats\\degree_distribution.csv",
+    "degree_log2_buckets_csv": "results\\orkut_graph_stats\\degree_log2_buckets.csv",
+    "summary_json": "results\\orkut_graph_stats\\graph_stats.json"
+  }
+}

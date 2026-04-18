@@ -1,0 +1,63 @@
+{
+  "mode": "gpu_only",
+  "graph": "datasets\\com-orkut.ungraph.txt",
+  "truth": 627584181,
+  "truth_source": "GPU Exact",
+  "reference_label": "GPU Exact",
+  "reference_time": 1.8084124000743032,
+  "h2d_time": 0.33170440001413226,
+  "rows": [
+    {
+      "method": "GPU Exact (ours)",
+      "estimate": 627584181,
+      "rel_error": 0.0,
+      "spdup_cnt": 1.0,
+      "spdup_e2e": 0.8450064033886256,
+      "time": 1.8084124000743032,
+      "e2e_time": 2.1401168000884354,
+      "coverage": 0.0
+    },
+    {
+      "method": "GPU Hybrid p=8 gamma=64",
+      "estimate": 698993713.5453873,
+      "rel_error": 0.11378478729594886,
+      "spdup_cnt": 1.788268096489107,
+      "spdup_e2e": 1.0650171934082735,
+      "time": 1.0112646999768913,
+      "e2e_time": 1.6980123994871974,
+      "coverage": 0.2366116513310828,
+      "build_time": 0.20093619963154197,
+      "sketch_alloc_time": 0.1541070998646319,
+      "clamp_ratio": 0.3249177815584003,
+      "n_sketched": 397441
+    },
+    {
+      "method": "GPU Hybrid p=8 gamma=128",
+      "estimate": 657905231.3187408,
+      "rel_error": 0.04831391745793676,
+      "spdup_cnt": 1.9386173047957018,
+      "spdup_e2e": 1.2807598383690089,
+      "time": 0.9328362001106143,
+      "e2e_time": 1.4119840003550053,
+      "coverage": 0.0812069314317079,
+      "build_time": 0.0021207001991569996,
+      "sketch_alloc_time": 0.1453227000311017,
+      "clamp_ratio": 0.32599552701534146,
+      "n_sketched": 73088
+    },
+    {
+      "method": "GPU Hybrid p=8 gamma=256",
+      "estimate": 628956902.6196289,
+      "rel_error": 0.0021873107404358017,
+      "spdup_cnt": 1.3990417360258538,
+      "spdup_e2e": 1.0188974206010017,
+      "time": 1.2926078997552395,
+      "e2e_time": 1.774871899280697,
+      "coverage": 0.006995770954908997,
+      "build_time": 0.0011069998145103455,
+      "sketch_alloc_time": 0.14945259969681501,
+      "clamp_ratio": 0.30959136374725543,
+      "n_sketched": 12213
+    }
+  ]
+}

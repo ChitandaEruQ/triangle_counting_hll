@@ -1,0 +1,27 @@
+# Python cache/build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments and local env files
+.venv/
+venv/
+env/
+.env
+
+# IDE and local assistant config
+.idea/
+.vscode/
+.claude/
+
+# Local/system cache artifacts
+Microsoft/
+
+# Large local datasets
+datasets/
+*.txt.gz
+
+# Duplicate archives and macOS metadata exports
+src1/
+__MACOSX/
+._*

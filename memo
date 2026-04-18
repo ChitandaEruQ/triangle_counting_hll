@@ -1,0 +1,131 @@
+  cugraph 不支持原生 Windows
+  RAPIDS（包括 cugraph）只支持 Linux，不能直接在 Windows 上安装。                                                                                                                                                                                                                                                                                                                                                   你的环境：                                                                                                                                                                                               - RTX 4060 Laptop (8GB VRAM) — GPU 支持                                                                                                                                                                  - CUDA 12.7 — 驱动正常
+  - Python 3.10 (Windows 原生) — 这是问题所在
+  - WSL2 — 未安装
+
+  ---
+  解决方案：安装 WSL2 + Ubuntu
+
+  WSL2 是在 Windows 上运行 cugraph 的官方推荐方式。
+
+  第一步：安装 WSL2
+
+  在 管理员权限的 PowerShell 或命令提示符 中运行：
+
+  wsl --install
+
+  安装完成后重启电脑，然后按提示设置 Ubuntu 用户名和密码。
+
+  第二步：安装完 WSL2 后告诉我
+
+  重启并完成 Ubuntu 设置后，回来继续，我会帮你在 WSL2 里用 conda 安装 RAPIDS/cugraph。
+
+  ---
+  你有没有之前尝试安装的记录，或者有特定的 cugraph 使用场景告诉我？这样我可以帮你选择最合适的安装方式。
+
+✻ Worked for 30s
+
+❯ PS C:\Windows\system32> wsl --install                                                                                                                                                                    正在安装 Windows 可选组件: VirtualMachinePlatform
+  Deployment Image Servicing and Management tool
+  Version: 10.0.26100.1150
+
+  Image Version: 10.0.26100.3775
+
+  Enabling feature(s)
+  [==========================100.0%==========================]
+  The operation completed successfully.
+  The requested operation is successful. Changes will not be effective until the system is rebooted.
+  PS C:\Windows\system32>
+
+
+● 需要再重启一次！VirtualMachinePlatform 组件已启用，但要生效必须重启。
+
+  现在请重启电脑。
+
+
+
+
+
+  • WSL 相关 Windows 功能已经启用成功，但系统明确提示需要重启后才会生效。下一步我先给你确认重启后的安装命令，避免现在继续执行无效命令。
+
+• 这一步已经成功了。现在必须先重启电脑，否则 WSL 功能还不会真正生效。
+
+  重启后，用管理员 PowerShell 执行：
+
+  wsl --install -d Ubuntu-24.04
+
+  如果提示已经安装过 WSL，则执行：
+
+  wsl --update
+  wsl --set-default-version 2
+  wsl -l -v
+
+  然后打开 Ubuntu，创建用户名和密码。
+
+  进入 Ubuntu 后再装 cuGraph，推荐用 Miniforge/conda：
+
+  wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+  bash Miniforge3-Linux-x86_64.sh
+
+  关闭并重新打开 Ubuntu 后：
+
+  conda create -n rapids-26.04 -c rapidsai -c conda-forge python=3.12 cugraph cuda-version=12.9
+  conda activate rapids-26.04
+  python -c "import cugraph; print('cugraph ok')"
+
+
+
+
+
+  如果仍然没有 Ubuntu，再运行：
+
+  wsl --install -d Ubuntu-24.04
+
+  如果卡在商店/下载，可以试：
+
+  wsl --install -d Ubuntu-24.04 --web-download
+
+  微软官方文档也说明，wsl --install 启用必要功能后需要重启，并且可以用 wsl --install -d <DistroName> 安装指定发行版；--web-download 可绕开 Microsoft Store 下载路径。参考：
+  https://learn.microsoft.com/en-us/windows/wsl/install
+  https://learn.microsoft.com/en-us/windows/wsl/basic-commands
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  现在问题更像是：Windows 的 WSL 可选功能没完全启用，或者 Hyper-V 启动项没打开。你按下面这套做，不用再进 BIOS。
+
+  请打开 管理员 PowerShell，一定要右键“以管理员身份运行”，然后复制运行这几行：
+
+  dism /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  dism /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  bcdedit /set hypervisorlaunchtype auto
+  wsl --set-default-version 2
+  shutdown /r /t 0
+
+  电脑会立刻重启。
+
+  重启回来后，再开普通 PowerShell 或管理员 PowerShell 都可以，运行：
+
+  wsl --status
+  wsl --install -d Ubuntu-24.04
+
+  如果还是提示“Changes will not be effective until the system is rebooted”，再试这个完整关机，不是重启：
+
+  shutdown /s /t 0
+
+  等电脑完全关掉后，手动按电源开机，再运行：
+
+  wsl --install -d Ubuntu-24.04
+
+  你现在的情况可以简化成一句话：虚拟化已经开了，接下来就是用管理员权限把 WSL 和 VirtualMachinePlatform 重新启用一遍，再强制让 Windows hypervisor 启动。
+                                                                                                                                                                                                         重启后，WSL2 应该会自动继续安装 Ubuntu（会弹出一个终端窗口要求设置用户名和密码）。设置好后告诉我，我们继续下一步安装 RAPIDS/cugraph。
