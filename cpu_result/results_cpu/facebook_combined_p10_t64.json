@@ -1,0 +1,57 @@
+{
+  "graph": {
+    "nodes": 4039,
+    "edges": 88234,
+    "forward_max_out_degree": 125,
+    "forward_mean_out_degree": 21.84550631344392
+  },
+  "numba": true,
+  "results": [
+    {
+      "method": "baseline-networkit-triangle-edge-score",
+      "triangles": 1612010.0,
+      "total_seconds": 0.21047259494662285,
+      "preprocess_seconds": 0.20507130399346352,
+      "query_seconds": 0.005401290953159332,
+      "details": {
+        "threads": "networkit-default"
+      }
+    },
+    {
+      "method": "exact-forward-degree-order",
+      "triangles": 1612010.0,
+      "total_seconds": 0.5235443599522114,
+      "preprocess_seconds": 0.0,
+      "query_seconds": 0.5235443599522114,
+      "details": null
+    },
+    {
+      "method": "pure-hll-forward",
+      "triangles": 1572817.2097053877,
+      "total_seconds": 0.9583658054471016,
+      "preprocess_seconds": 0.016629375517368317,
+      "query_seconds": 0.9417364299297333,
+      "details": {
+        "hll_p": 10,
+        "registers_per_node": 1024,
+        "estimated_edges": 88234
+      }
+    },
+    {
+      "method": "hybrid-forward-exact-hll",
+      "triangles": 1599762.61177477,
+      "total_seconds": 0.068964634090662,
+      "preprocess_seconds": 0.016629375517368317,
+      "query_seconds": 0.052335258573293686,
+      "details": {
+        "hll_p": 10,
+        "registers_per_node": 1024,
+        "threshold": 64,
+        "exact_edges": 81039,
+        "hll_edges": 7195,
+        "exact_contribution": 1132453.0,
+        "hll_contribution": 467309.61177477014
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "graph": {
+    "nodes": 18772,
+    "edges": 198050,
+    "forward_max_out_degree": 66,
+    "forward_mean_out_degree": 10.550287662476029
+  },
+  "numba": true,
+  "results": [
+    {
+      "method": "exact-forward-degree-order",
+      "triangles": 1351441.0,
+      "total_seconds": 0.5933086574077606,
+      "preprocess_seconds": 0.0,
+      "query_seconds": 0.5933086574077606,
+      "details": null
+    },
+    {
+      "method": "pure-hll-forward",
+      "triangles": 1304997.540476273,
+      "total_seconds": 0.07297945022583008,
+      "preprocess_seconds": 0.017538972198963165,
+      "query_seconds": 0.05544047802686691,
+      "details": {
+        "hll_p": 8,
+        "registers_per_node": 256,
+        "estimated_edges": 198050
+      }
+    },
+    {
+      "method": "hybrid-forward-exact-hll",
+      "triangles": 1351441.0,
+      "total_seconds": 0.03591421619057655,
+      "preprocess_seconds": 0.017538972198963165,
+      "query_seconds": 0.018375243991613388,
+      "details": {
+        "hll_p": 8,
+        "registers_per_node": 256,
+        "threshold": 64,
+        "exact_edges": 198050,
+        "hll_edges": 0,
+        "exact_contribution": 1351441.0,
+        "hll_contribution": 0.0
+      }
+    }
+  ]
+}
