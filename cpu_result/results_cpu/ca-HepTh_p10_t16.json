@@ -1,0 +1,52 @@
+{
+  "graph": {
+    "nodes": 9877,
+    "edges": 25973,
+    "forward_max_out_degree": 31,
+    "forward_mean_out_degree": 2.6296446289359117
+  },
+  "numba": true,
+  "results": [
+    {
+      "method": "exact-forward-degree-order",
+      "triangles": 28339.0,
+      "total_seconds": 0.0002831295132637024,
+      "preprocess_seconds": 0.0,
+      "query_seconds": 0.0002831295132637024,
+      "details": null
+    },
+    {
+      "method": "pure-hll-forward",
+      "triangles": 28267.517414651833,
+      "total_seconds": 0.013018809258937836,
+      "preprocess_seconds": 0.0012067779898643494,
+      "query_seconds": 0.011812031269073486,
+      "details": {
+        "hll_p": 10,
+        "registers_per_node": 1024,
+        "estimated_edges": 25973,
+        "clamp_count": 12945,
+        "clamp_pct": 49.8402
+      }
+    },
+    {
+      "method": "hybrid-forward-exact-hll",
+      "triangles": 28295.405341171838,
+      "total_seconds": 0.0031216032803058624,
+      "preprocess_seconds": 0.0012067779898643494,
+      "query_seconds": 0.001914825290441513,
+      "details": {
+        "hll_p": 10,
+        "registers_per_node": 1024,
+        "threshold": 16,
+        "exact_edges": 25840,
+        "hll_edges": 133,
+        "exact_contribution": 25584.0,
+        "hll_contribution": 2711.405341171839,
+        "coverage": 0.005121,
+        "clamp_count": 1,
+        "clamp_pct": 0.7519
+      }
+    }
+  ]
+}
