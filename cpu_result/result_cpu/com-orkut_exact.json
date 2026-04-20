@@ -1,0 +1,19 @@
+{
+  "graph": {
+    "nodes": 3072441,
+    "edges": 117185083,
+    "forward_max_out_degree": 535,
+    "forward_mean_out_degree": 38.140710594605395
+  },
+  "numba": true,
+  "results": [
+    {
+      "method": "exact-forward-degree-order",
+      "triangles": 627584181.0,
+      "total_seconds": 4.669824231415987,
+      "preprocess_seconds": 0.0,
+      "query_seconds": 4.669824231415987,
+      "details": null
+    }
+  ]
+}
