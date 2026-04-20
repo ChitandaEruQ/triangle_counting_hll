@@ -1,0 +1,25 @@
+{
+  "graph": {
+    "nodes": 1379917,
+    "edges": 1921660,
+    "forward_max_out_degree": 4,
+    "forward_mean_out_degree": 1.3925910036618145
+  },
+  "numba": true,
+  "results": [
+    {
+      "method": "pure-hll-forward",
+      "triangles": 87358.54006207935,
+      "total_seconds": 0.6494306065142155,
+      "preprocess_seconds": 0.0911560021340847,
+      "query_seconds": 0.5582746043801308,
+      "details": {
+        "hll_p": 10,
+        "registers_per_node": 1024,
+        "estimated_edges": 1921660,
+        "clamp_count": 1834609,
+        "clamp_pct": 95.47
+      }
+    }
+  ]
+}

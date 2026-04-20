@@ -1,0 +1,21 @@
+{
+  "graph": {
+    "nodes": 1965206,
+    "edges": 2766607,
+    "forward_max_out_degree": 4,
+    "forward_mean_out_degree": 1.4077949080147323
+  },
+  "numba": true,
+  "results": [
+    {
+      "method": "baseline-networkit-triangle-edge-score",
+      "triangles": 120676.0,
+      "total_seconds": 1.37671734765172,
+      "preprocess_seconds": 0.8274837546050549,
+      "query_seconds": 0.5492335930466652,
+      "details": {
+        "threads": 40
+      }
+    }
+  ]
+}

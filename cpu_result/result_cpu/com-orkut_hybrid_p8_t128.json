@@ -1,0 +1,30 @@
+{
+  "graph": {
+    "nodes": 3072441,
+    "edges": 117185083,
+    "forward_max_out_degree": 535,
+    "forward_mean_out_degree": 38.140710594605395
+  },
+  "numba": true,
+  "results": [
+    {
+      "method": "hybrid-forward-exact-hll",
+      "triangles": 661486965.5940409,
+      "total_seconds": 6.011525448411703,
+      "preprocess_seconds": 0.14507634192705154,
+      "query_seconds": 5.866449106484652,
+      "details": {
+        "hll_p": 8,
+        "registers_per_node": 256,
+        "threshold": 128,
+        "exact_edges": 107785991,
+        "hll_edges": 9399092,
+        "exact_contribution": 475766289.0,
+        "hll_contribution": 185720676.59404084,
+        "coverage": 0.080207,
+        "clamp_count": 2977745,
+        "clamp_pct": 31.6812
+      }
+    }
+  ]
+}
